@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<link rel="icon" href="data:," />
+<title>一筆愛 書道・ペン字教室｜大阪京橋・河内長野・オンライン</title>
+<meta name="description" content="大阪・京橋と河内長野、オンラインで開く書道・ペン字教室「一筆愛」。小筆・筆ペン・ボールペンの少人数レッスンと、賞状・宛名書きの筆耕。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --paper:#F7F5F0;
+    --paper-2:#EFEAE2;
+    --ink:#2E2B26;
+    --ink-soft:#6F695C;
+    --ink-faint:#9C9484;
+    --line:#D8D2C7;
+    --line-dark:#BFB5A1;
+    --accent:#3E4C63;
+    --accent-text:#37455C;
+    --bar:#2E2B26;
+    --bar-line:#4E4A42;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans JP", system-ui, -apple-system, sans-serif;
+    line-height:1.9;
+    font-size:15px;
+    padding-bottom:64px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block; max-width:100%}
+  main img{filter:sepia(.15) saturate(.85)}
+  a{color:inherit}
+  h1,h2,h3{font-family:"Noto Serif JP","Noto Sans JP", serif; font-weight:600; letter-spacing:.1em; margin:0}
+  .label{
+    font-family:"Cormorant Garamond",serif; font-style:italic;
+    font-size:13px; letter-spacing:.3em; text-transform:uppercase;
+    color:var(--accent-text); font-weight:500;
+  }
+  .demo-bar{
+    border-bottom:1px solid var(--line);
+    text-align:center;
+    font-size:11px; letter-spacing:.08em; color:var(--ink-soft);
+    padding:7px 14px; line-height:1.6;
+  }
+  header.site{
+    max-width:1120px; margin:0 auto;
+    padding:22px 24px 18px;
+    display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .brand{text-decoration:none; display:block}
+  .brand-name{font-family:"Noto Serif JP",serif; font-size:29px; font-weight:600; letter-spacing:.18em; line-height:1.05; color:var(--ink)}
+  .brand-sub{font-size:10.5px; letter-spacing:.3em; color:var(--ink-soft); margin-top:5px}
+  nav.top{display:none; gap:30px; font-size:12.5px; letter-spacing:.14em; padding-bottom:4px}
+  nav.top a{text-decoration:none; padding:8px 0; min-height:44px; display:inline-flex; align-items:center}
+  nav.top a:hover{color:var(--accent-text)}
+  nav.top a.reserve-link{border-bottom:1px solid var(--accent); color:var(--accent-text); font-weight:700}
+  @media(min-width:820px){ nav.top{display:flex} }
+  @media(max-width:640px){
+    header.site{padding:16px 16px 14px}
+    .brand-name{font-size:24px}
+    .brand-sub{font-size:9.5px; letter-spacing:.22em}
+  }
+  .sp-reserve{
+    display:inline-flex; align-items:center; min-height:44px;
+    font-size:12.5px; letter-spacing:.14em; font-weight:700; color:var(--accent-text);
+    text-decoration:none; border-bottom:1px solid var(--accent); padding-bottom:2px; flex:none;
+  }
+  @media(min-width:820px){ .sp-reserve{display:none} }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px}
+  @media(max-width:640px){ .wrap{padding:0 16px} }
+
+  /* hero */
+  .hero{max-width:1120px; margin:0 auto; padding:34px 24px 0; position:relative}
+  @media(max-width:640px){ .hero{padding:22px 16px 0} }
+  .hero-photo{position:relative; margin-left:auto; width:100%}
+  .hero-photo img{width:100%; height:300px; object-fit:cover}
+  .vertical{
+    writing-mode:vertical-rl; text-orientation:mixed;
+    font-family:"Noto Serif JP",serif; font-weight:600; font-size:13px; letter-spacing:.22em;
+    color:var(--ink);
+    background:var(--paper);
+    position:absolute; top:12px; left:12px; height:276px; z-index:3;
+    display:flex; align-items:center; justify-content:center; white-space:nowrap;
+    padding:10px 5px;
+  }
+  .hero-caption{font-size:10.5px; color:var(--ink-faint); letter-spacing:.06em; margin-top:8px; text-align:right}
+  .hero-text{padding-top:26px; max-width:640px}
+  .hero-text .label{display:flex; align-items:center; gap:14px}
+  .hero-text .label::after{content:""; flex:0 0 44px; height:1px; background:var(--line-dark)}
+  .hero-text h1{font-size:30px; line-height:1.8; letter-spacing:.12em; margin-top:18px}
+  .hero-lead{font-size:14.5px; color:var(--ink-soft); margin-top:18px; max-width:520px}
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:6px 22px; margin-top:20px;
+    font-size:12px; letter-spacing:.12em; color:var(--ink-soft);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; align-items:center; gap:14px 26px; margin-top:24px}
+  .btn-flat{
+    display:inline-flex; align-items:center; justify-content:center;
+    background:var(--ink); color:var(--paper); text-decoration:none;
+    min-height:52px; padding:12px 30px; font-size:14px; font-weight:500; letter-spacing:.12em;
+  }
+  .text-link{
+    display:inline-flex; align-items:center; min-height:44px;
+    font-size:13.5px; letter-spacing:.08em; color:var(--accent-text); font-weight:700;
+    text-decoration:none; border-bottom:1px solid var(--accent); padding-bottom:2px;
+  }
+  @media(min-width:900px){
+    .hero{padding-top:46px}
+    .hero-photo{width:66%}
+    .hero-photo img{height:540px}
+    .vertical{display:flex; height:460px; font-size:16px; letter-spacing:.42em; left:auto; right:26px; top:36px; padding:20px 7px}
+    .hero-text{
+      position:absolute; left:24px; bottom:34px; z-index:2;
+      background:var(--paper);
+      padding:36px 40px 32px 6px;
+      max-width:560px;
+    }
+    .hero-text h1{font-size:35px}
+    .hero-caption{position:absolute; right:0; bottom:-24px}
+  }
+
+  /* sections */
+  section{padding:76px 0 0}
+  @media(max-width:640px){ section{padding:58px 0 0} }
+  .sec-head{margin-bottom:34px}
+  .sec-head .label{display:flex; align-items:center; gap:16px}
+  .sec-head .label::after{content:""; flex:1; height:1px; background:var(--line)}
+  .sec-head h2{font-size:25px; letter-spacing:.16em; margin-top:14px}
+  .sec-head p{color:var(--ink-soft); font-size:14px; max-width:600px; margin:12px 0 0}
+
+  /* concept */
+  .concept{position:relative; margin-top:8px}
+  .concept-photo{width:100%}
+  .concept-photo img{width:100%; height:300px; object-fit:cover}
+  .concept-photo figcaption{font-size:10.5px; color:var(--ink-faint); margin-top:8px; letter-spacing:.06em}
+  .concept-text{padding-top:26px}
+  .concept-text h3{font-size:21px; letter-spacing:.12em; line-height:1.8}
+  .concept-text p{color:var(--ink-soft); font-size:14.5px}
+  .fact-rows{margin-top:22px; border-top:1px solid var(--line)}
+  .fact-rows .row{display:flex; gap:18px; padding:9px 0; border-bottom:1px solid var(--line); font-size:13.5px}
+  .fact-rows dt{flex:0 0 74px; color:var(--ink-faint); font-size:12px; letter-spacing:.14em; padding-top:3px}
+  .fact-rows dd{margin:0}
+  @media(min-width:900px){
+    .concept{display:grid; grid-template-columns:58% 42%; align-items:start}
+    .concept-photo img{height:460px}
+    .concept-text{
+      background:var(--paper);
+      margin-left:-72px; margin-top:64px;
+      padding:34px 6px 10px 40px;
+      position:relative; z-index:2;
+    }
+  }
+  .offset-photo{margin-top:44px}
+  .offset-photo img{width:100%; height:280px; object-fit:cover}
+  .offset-photo figcaption{font-size:10.5px; color:var(--ink-faint); margin-top:8px; letter-spacing:.06em}
+  @media(min-width:900px){
+    .offset-photo{width:52%; margin-left:auto; margin-top:6px}
+    .offset-photo img{height:330px}
+  }
+
+  /* course list */
+  .group-title{
+    font-family:"Noto Serif JP",serif; font-size:16px; font-weight:600; letter-spacing:.14em;
+    margin:38px 0 0; padding-bottom:10px; border-bottom:1px solid var(--line-dark);
+  }
+  .group-title:first-of-type{margin-top:0}
+  .menu-list{border-top:none}
+  .menu-item{
+    display:grid; grid-template-columns:52px 1fr; gap:6px 16px;
+    padding:26px 0 24px; border-bottom:1px solid var(--line);
+  }
+  .menu-no{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:27px; font-weight:500; color:var(--accent-text); line-height:1.2; padding-top:2px}
+  .menu-main h3{font-size:18px; letter-spacing:.08em; line-height:1.6}
+  .menu-en{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--ink-faint); margin-top:3px}
+  .menu-main p{font-size:13.5px; color:var(--ink-soft); margin:10px 0 0; max-width:560px}
+  .menu-side{grid-column:2; display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-top:12px}
+  .menu-dur{font-size:12px; color:var(--ink-soft); letter-spacing:.06em}
+  .menu-price{font-family:"Cormorant Garamond",serif; font-size:27px; font-weight:600; letter-spacing:.03em; white-space:nowrap}
+  .menu-price small{font-size:13px; font-family:"Noto Sans JP",sans-serif; font-weight:400; letter-spacing:.06em}
+  @media(min-width:820px){
+    .menu-item{grid-template-columns:72px 1fr auto; gap:6px 26px; align-items:start}
+    .menu-no{font-size:33px}
+    .menu-side{grid-column:3; grid-row:1; flex-direction:column; align-items:flex-end; justify-content:flex-start; gap:4px; margin-top:2px; text-align:right}
+    .menu-price{font-size:29px}
+  }
+  .menu-footnote{font-size:12.5px; color:var(--ink-soft); margin-top:18px; letter-spacing:.04em}
+  .menu-footnote strong{color:var(--ink)}
+
+  /* profile / band block */
+  .band{background:var(--paper-2); color:var(--ink); margin-top:84px}
+  .band-inner{max-width:1120px; margin:0 auto; padding:48px 24px 52px; position:relative}
+  .band .label{color:var(--accent-text)}
+  .band h3{color:var(--ink); font-size:23px; letter-spacing:.14em; margin-top:14px}
+  .band p{color:var(--ink-soft); font-size:14px; max-width:560px}
+  .band .text-link{color:var(--accent-text); border-bottom-color:var(--accent)}
+  .band-photo{margin-top:28px}
+  .band-photo img{width:100%; height:230px; object-fit:cover}
+  .band-photo figcaption{font-size:10.5px; color:var(--ink-faint); margin-top:8px; letter-spacing:.06em}
+  .band .fact-rows{border-top-color:var(--line-dark)}
+  .band .fact-rows .row{border-bottom-color:var(--line)}
+  @media(min-width:900px){
+    .band-inner{display:grid; grid-template-columns:1fr 380px; gap:56px; padding:60px 24px 64px}
+    .band-photo{margin-top:-92px}
+    .band-photo img{height:300px}
+  }
+  @media(max-width:640px){ .band-inner{padding:40px 16px 44px} }
+
+  /* price list (hikko) */
+  .price-list{border-top:1px solid var(--line-dark)}
+  .price-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:18px;
+    padding:15px 0; border-bottom:1px solid var(--line);
+  }
+  .price-row .p-name{font-size:15px; letter-spacing:.06em}
+  .price-row .p-name small{display:block; font-size:12px; color:var(--ink-soft); letter-spacing:.04em}
+  .price-row .p-price{font-family:"Cormorant Garamond",serif; font-size:23px; font-weight:600; white-space:nowrap}
+  .price-row .p-price small{font-size:12px; font-family:"Noto Sans JP",sans-serif; font-weight:400}
+
+  /* access */
+  .info-grid{display:grid; gap:44px}
+  @media(min-width:900px){ .info-grid{grid-template-columns:1fr 1fr; gap:64px} }
+  .info-block h3{font-size:18px; letter-spacing:.12em; padding-bottom:12px; border-bottom:1px solid var(--line-dark); margin:0}
+  .info-block dl{margin:0}
+  .info-block .row{display:flex; gap:18px; padding:11px 0; border-bottom:1px solid var(--line); font-size:14px}
+  .info-block dt{flex:0 0 72px; color:var(--ink-faint); font-size:12px; letter-spacing:.14em; padding-top:4px}
+  .info-block dd{margin:0; flex:1}
+  .map-link{margin-top:18px}
+
+  /* footer */
+  footer{margin-top:84px; background:var(--paper-2); border-top:1px solid var(--line); padding:44px 24px 36px}
+  .footer-inner{max-width:1120px; margin:0 auto}
+  .footer-brand{font-family:"Noto Serif JP",serif; font-size:26px; font-weight:600; letter-spacing:.18em}
+  .footer-sub{font-size:10.5px; letter-spacing:.3em; color:var(--ink-soft); margin-top:4px}
+  .footer-info{font-size:12.5px; color:var(--ink-soft); line-height:2.1; margin-top:20px}
+  .footer-note{font-size:11px; color:var(--ink-faint); margin-top:14px}
+  .footer-demo{margin-top:22px; padding-top:16px; border-top:1px solid var(--line-dark); font-size:11.5px; color:var(--ink-soft); letter-spacing:.04em}
+  .footer-copy{margin-top:14px; font-size:11px; color:var(--ink-faint); font-family:"Cormorant Garamond",serif; font-style:italic; letter-spacing:.18em}
+
+  /* fixed bar — flat, no shadow */
+  .fixed-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:50;
+    background:var(--bar);
+    display:grid; grid-template-columns:1fr 1fr;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .fixed-bar a{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    min-height:58px; text-decoration:none; color:#F7F5F0; padding:8px 10px;
+  }
+  .fixed-bar a + a{border-left:1px solid var(--bar-line)}
+  .fixed-bar .fb-label{text-align:left; line-height:1.35; font-size:13.5px; font-weight:500; letter-spacing:.1em}
+  .fixed-bar small{display:block; font-size:10.5px; font-weight:400; opacity:.75; letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">制作デモ ｜ 一筆愛 書道・ペン字教室 様向けに作成したホームページの見本です</div>
+
+<header class="site">
+  <a class="brand" href="#top" aria-label="一筆愛 書道・ペン字教室 トップへ">
+    <span class="brand-name">一筆愛</span>
+    <span class="brand-sub" style="display:block">書道・ペン字教室 ／ 女流毛筆工房</span>
+  </a>
+  <nav class="top" aria-label="メインナビゲーション">
+    <a href="#about">教室について</a>
+    <a href="#course">コース・料金</a>
+    <a href="#teacher">講師</a>
+    <a href="#hikko">筆耕</a>
+    <a class="reserve-link" href="#access">アクセス・お問い合わせ</a>
+  </nav>
+  <a class="sp-reserve" href="#access">お問い合わせ</a>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <figure class="hero-photo" style="margin-top:0; margin-bottom:0">
+      <span class="vertical" aria-hidden="true">何歳からでも、字は変わります</span>
+      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="万年筆のペン先で文字を書く様子" />
+      <figcaption class="hero-caption">※ 写真はイメージです</figcaption>
+    </figure>
+    <div class="hero-text">
+      <div class="label">Ippitsu Ai — Osaka, Kawachinagano &amp; Online</div>
+      <h1>何歳からでも、<br>美文字に変身。<br>書くことで、心が育つ</h1>
+      <p class="hero-lead">大阪・京橋と河内長野、そしてオンラインで開く、大人の小筆・ペン字・実用書道教室です。子ども書道教室、通信ペン字、賞状・宛名書きの筆耕まで。少人数制で、お一人ずつのご希望に沿ったレッスンを行います。</p>
+      <div class="hero-meta">
+        <span>少人数制（最大4名）</span>
+        <span>京橋・河内長野・オンライン</span>
+        <span>体験レッスン受付中</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn-flat" href="tel:09091154267">電話で問い合わせる</a>
+        <a class="text-link" href="#course">コース・料金を見る →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">About</div>
+        <h2>書くことで、心が育つ</h2>
+      </div>
+      <div class="concept">
+        <figure class="concept-photo" style="margin:0">
+          <img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="ノートと万年筆" />
+          <figcaption>※ 写真はイメージです</figcaption>
+        </figure>
+        <div class="concept-text">
+          <h3>文字が整うと、<br>心の軸が強くなります</h3>
+          <p>デジタル化が進み、字を書く機会はめっきり減りました。けれど、文字を書くことに一生懸命になる時間は、集中力を高め、先を読む力を養い、心を穏やかに保つ力になります。</p>
+          <p>レッスンは最大4名までの少人数制。お名前や住所、手紙、宛名書き、禅語など、お一人ずつのご希望の内容で進める完全カスタマイズのレッスンです。道具の貸出は無料ですので、手ぶらでお越しいただけます。</p>
+          <dl class="fact-rows">
+            <div class="row"><dt>講師</dt><dd>一筆愛（書道師範・書道八段）</dd></div>
+            <div class="row"><dt>拠点</dt><dd>大阪・京橋／都島中通り、河内長野・妙長寺、オンライン</dd></div>
+            <div class="row"><dt>形式</dt><dd>少人数制・完全カスタマイズ</dd></div>
+            <div class="row"><dt>道具</dt><dd>硯・文鎮・下敷き等の貸出無料</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSE -->
+  <section id="course">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Course &amp; Price</div>
+        <h2>コース・料金</h2>
+        <p>小筆・筆ペン・ボールペンからお選びいただけます。両方を同じ時間内に受講することも可能です（別途費用はかかりません）。</p>
+      </div>
+
+      <h3 class="group-title">京橋教室（レンタルルーム）・自宅教室</h3>
+      <div class="menu-list">
+        <article class="menu-item">
+          <div class="menu-no">01</div>
+          <div class="menu-main">
+            <h3>Aコース（小筆・筆ペン・ボールペン）</h3>
+            <div class="menu-en">Regular Course A</div>
+            <p>細く長く趣味として続けたい方におすすめのレギュラーコース。講師オリジナルの手本で、お一人ずつのご希望に沿ってレッスンします。検定試験はなく、月謝以外の費用はかかりません。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">月2回・約120分／土曜 15:00〜17:00、17:00〜19:00</span>
+            <span class="menu-price">¥9,000<small>／月</small></span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-no">02</div>
+          <div class="menu-main">
+            <h3>Bコース（平日夜・ボールペン／筆ペン）</h3>
+            <div class="menu-en">Weeknight Course B</div>
+            <p>お仕事帰りに通える平日夜のペン字レッスン。お名前・住所の練習から始め、普段の字がきれいに書けるように進めていきます。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">月2回・約80分／第1・第3水曜 18:40〜20:00</span>
+            <span class="menu-price">¥8,000<small>／月</small></span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-no">03</div>
+          <div class="menu-main">
+            <h3>自宅教室・大人クラス</h3>
+            <div class="menu-en">Home Class — Adults</div>
+            <p>都島中通りの自宅教室で開く大人クラス（小筆・筆ペン・ボールペン）。お一人ずつご希望の内容でレッスンする、少人数のセミプライベートレッスンです。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">月2回・90〜120分／月曜 10:00〜最大12:00</span>
+            <span class="menu-price">¥8,000<small>／月</small></span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-no">04</div>
+          <div class="menu-main">
+            <h3>子ども書道教室（自宅教室）</h3>
+            <div class="menu-en">Kids Class</div>
+            <p>年長さん〜小学生対象。毛筆・硬筆を学びます。筆は講師が洗い、道具も全てこちらで保管します。段級取得も可能です（検定料別途）。兄弟割引もあります。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">月3回／火曜 15:20〜16:20、16:30〜17:30・最大4名</span>
+            <span class="menu-price">¥5,500<small>／月</small></span>
+          </div>
+        </article>
+      </div>
+      <p class="menu-footnote">子ども書道教室は<strong>入会金 3,000円・年会費 3,000円</strong>が別途必要です。お手本代込み。体験レッスン（1,000円）も受付中です。</p>
+
+      <h3 class="group-title">短期集中コース（京橋教室）</h3>
+      <div class="menu-list">
+        <article class="menu-item">
+          <div class="menu-no">05</div>
+          <div class="menu-main">
+            <h3>2回完結コース（名前・住所）</h3>
+            <div class="menu-en">Short Course — 2 Lessons</div>
+            <p>人生で一番多く書く「自分の名前・住所」を2回でマスターするコースです。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">2回完結／約2時間×月2回</span>
+            <span class="menu-price">¥10,000</span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-no">06</div>
+          <div class="menu-main">
+            <h3>大人のたしなみコース（6回完結）</h3>
+            <div class="menu-en">Short Course — 6 Lessons</div>
+            <p>名前と住所、のし袋の表書き、数字・アルファベット、一筆箋、お礼状、宛名書きまで。大人のたしなみに必要な書き方をひと通り学びます。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">6回完結／約2時間×月2回×3か月</span>
+            <span class="menu-price">¥30,000</span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-no">07</div>
+          <div class="menu-main">
+            <h3>美文字基礎コース（12回完結）</h3>
+            <div class="menu-en">Short Course — 12 Lessons</div>
+            <p>基礎の画法から、へんごとの練習、ひらがな・カタカナ、日常でよく使う言葉や手紙文まで。最短で美文字を習得したい方におすすめです。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">12回完結／約2時間×月2回×6か月</span>
+            <span class="menu-price">¥60,000</span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-no">08</div>
+          <div class="menu-main">
+            <h3>ひらがな集中コース（6回完結）</h3>
+            <div class="menu-en">Short Course — Hiragana</div>
+            <p>文章の7割を占めるひらがなを集中して練習するコース。ひらがなが整うと、文章全体の印象が変わります。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">6回完結／約2時間×月2回×3か月</span>
+            <span class="menu-price">¥30,000</span>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="group-title">河内長野教室（妙長寺）／プロコース</h3>
+      <div class="menu-list">
+        <article class="menu-item">
+          <div class="menu-no">09</div>
+          <div class="menu-main">
+            <h3>河内長野教室（妙長寺）</h3>
+            <div class="menu-en">Kawachinagano — Myochoji Temple</div>
+            <p>お寺の静かな空間で開く月1回のレッスン。名前や住所の練習、宛名書き、百人一首、禅語など、お一人ずつのご希望に沿った完全カスタマイズレッスンです。ティータイム付き。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">月1回／第3日曜 10:30〜12:00</span>
+            <span class="menu-price">¥5,000<small>／月</small></span>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-no">10</div>
+          <div class="menu-main">
+            <h3>超実践！宛名書きプロコース</h3>
+            <div class="menu-en">Professional — Addressing</div>
+            <p>現役筆耕士から学ぶ、宛名書きのプロコース。実際に筆耕を受注したときを想定し、本番同様にライトテーブルを使って練習します。最大3名までの少人数制です。</p>
+          </div>
+          <div class="menu-side">
+            <span class="menu-dur">月1回・約3時間／第2・第4水曜 10:00〜13:00</span>
+            <span class="menu-price">¥60,000<small>（前期・5か月）</small></span>
+          </div>
+        </article>
+      </div>
+      <p class="menu-footnote">このほか、<strong>オンラインレッスン</strong>（朝活写経・美文字瞑想・プライベートレッスン／体験30分 2,200円）や<strong>通信ペン字</strong>、2026年9月開講の<strong>賞状・筆耕プロコース</strong>もあります。体験レッスンは京橋教室60分 3,000円。詳細はお問い合わせください。</p>
+    </div>
+  </section>
+
+  <!-- TEACHER -->
+  <section id="teacher" style="padding-top:0">
+    <div class="band">
+      <div class="band-inner">
+        <div>
+          <div class="label">Instructor</div>
+          <h3>講師 ― 一筆愛</h3>
+          <p>「書けば、心が動き出す」。書と心のトレーナー、女流毛筆工房 代表。筆耕歴20年、招待状の宛名や賞状全文、神社での御朱印帳の揮毫などを手がけてきました。</p>
+          <dl class="fact-rows">
+            <div class="row"><dt>資格</dt><dd>書道師範・書道八段</dd></div>
+            <div class="row"><dt>筆耕</dt><dd>歴20年・筆耕枚数1万枚以上</dd></div>
+            <div class="row"><dt>オンライン</dt><dd>2020年からレッスン2,000回以上・総受講者数4,500名以上</dd></div>
+            <div class="row"><dt>メディア</dt><dd>ABCテレビ「ノイミーステーションTV」（2026年）、関西テレビ「newsランナー」（2025年）ほか出演</dd></div>
+          </dl>
+        </div>
+        <figure class="band-photo" style="margin-bottom:0">
+          <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="夕暮れの五重塔と山並み" />
+          <figcaption>河内長野教室は、お寺（妙長寺）で開かれます　※ 写真はイメージです</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIKKO -->
+  <section id="hikko">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Hikko — Hand Lettering Service</div>
+        <h2>筆耕のご依頼</h2>
+        <p>賞状・卒業証書・招待状などの筆耕を承ります。20年以上、企業様からの宛名書き・賞状揮毫のご依頼が続いています。出張筆耕も可能です。</p>
+      </div>
+      <div class="price-list">
+        <div class="price-row"><span class="p-name">賞状 部分書き</span><span class="p-price">¥440<small>〜</small></span></div>
+        <div class="price-row"><span class="p-name">卒業証書／卒園証書 名入れ<small>番号・生年月日などは各55円追加</small></span><span class="p-price">¥330<small>〜</small></span></div>
+        <div class="price-row"><span class="p-name">賞状 全文書き<small>101文字目から1文字33円</small></span><span class="p-price">¥5,500<small>〜</small></span></div>
+        <div class="price-row"><span class="p-name">目録<small>101文字目から1文字33円</small></span><span class="p-price">¥4,950<small>〜</small></span></div>
+        <div class="price-row"><span class="p-name">招待状 宛名書き</span><span class="p-price">¥330<small>〜</small></span></div>
+        <div class="price-row"><span class="p-name">木札への名前書き</span><span class="p-price">¥550<small>〜</small></span></div>
+        <div class="price-row"><span class="p-name">過去帳への代筆</span><span class="p-price">¥1,100<small>〜</small></span></div>
+        <div class="price-row"><span class="p-name">出張筆耕</span><span class="p-price">¥20,000<small>〜（税別）</small></span></div>
+      </div>
+      <p class="menu-footnote">筆耕のご依頼の最低基本料金は <strong>2,200円〜（税込）</strong> です。送料は別途ご負担ください。筆耕の専門サイトもございます。ご依頼・お問い合わせはお電話またはメールでお願いいたします。</p>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section id="access">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Access &amp; Contact</div>
+        <h2>アクセス・お問い合わせ</h2>
+        <p>レッスンのお問い合わせ・お申し込み、筆耕のご依頼は、お電話またはメールで承ります。</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-block">
+          <h3>教室の場所</h3>
+          <dl>
+            <div class="row"><dt>京橋教室</dt><dd>大阪市都島区都島中通り<br><span style="color:var(--ink-soft); font-size:13px">各線京橋駅から徒歩約5〜10分のレンタルルーム／自宅教室は京橋駅・都島駅から徒歩12〜13分</span></dd></div>
+            <div class="row"><dt>河内長野</dt><dd>妙長寺（大阪府河内長野市河合寺25）<br><span style="color:var(--ink-soft); font-size:13px">河内長野駅から徒歩約10分・駐車場あり</span></dd></div>
+            <div class="row"><dt>オンライン</dt><dd>Zoomでのレッスン・通信ペン字も開講しています</dd></div>
+          </dl>
+          <a class="text-link map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%B8%82%E9%83%BD%E5%B3%B6%E5%8C%BA%E9%83%BD%E5%B3%B6%E4%B8%AD%E9%80%9A%E3%82%8A" target="_blank" rel="noopener">京橋教室をGoogleマップで見る →</a><br>
+          <a class="text-link map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%B2%B3%E5%86%85%E9%95%B7%E9%87%8E%E5%B8%82%E6%B2%B3%E5%90%88%E5%AF%BA25%20%E5%A6%99%E9%95%B7%E5%AF%BA" target="_blank" rel="noopener">妙長寺をGoogleマップで見る →</a>
+        </div>
+        <div class="info-block">
+          <h3>お問い合わせ</h3>
+          <dl>
+            <div class="row"><dt>電話</dt><dd><a href="tel:09091154267" style="font-weight:700">090-9115-4267</a></dd></div>
+            <div class="row"><dt>メール</dt><dd><a href="mailto:ai.ippitu@gmail.com">ai.ippitu@gmail.com</a></dd></div>
+            <div class="row"><dt>教室名</dt><dd>一筆愛 書道・ペン字教室（女流毛筆工房）</dd></div>
+            <div class="row"><dt>講師</dt><dd>一筆愛（いっぴつあい）</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">一筆愛</div>
+    <div class="footer-sub">書道・ペン字教室 ／ 女流毛筆工房 ・ 京橋・河内長野・オンライン</div>
+    <p class="footer-info">京橋教室：大阪市都島区都島中通り ｜ 河内長野教室：妙長寺（大阪府河内長野市河合寺25）<br>TEL 090-9115-4267 ｜ メール ai.ippitu@gmail.com</p>
+    <p class="footer-note">※ 掲載写真は教室の雰囲気をイメージした写真です。実際の教室の写真ではありません。</p>
+    <p class="footer-demo">※このページはホームページ制作のデモ（見本）です。内容は店舗の公開情報をもとに作成しています。</p>
+    <p class="footer-copy">© IPPITSU AI — DEMO PAGE</p>
+  </div>
+</footer>
+
+<nav class="fixed-bar" aria-label="お問い合わせショートカット">
+  <a href="tel:09091154267">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span class="fb-label">電話で問い合わせ<small>090-9115-4267</small></span>
+  </a>
+  <a href="mailto:ai.ippitu@gmail.com">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+    <span class="fb-label">メールで問い合わせ<small>ai.ippitu@gmail.com</small></span>
+  </a>
+</nav>
+
+</body>
+</html>
